@@ -3,9 +3,12 @@ import UIKit
 
 class HomeIndicatorAwareFlutterViewController : FlutterViewController {
   var hidingHomeIndicator: Bool = false
+
+  @available(iOS 11.0, *)
   override func prefersHomeIndicatorAutoHidden() -> Bool {
     return hidingHomeIndicator
   }
+
   func setHidingHomeIndicator(newValue: Bool) {
     if (newValue != hidingHomeIndicator) {
       hidingHomeIndicator = newValue

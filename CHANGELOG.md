@@ -1,3 +1,7 @@
+## 1.0.2
+
+* iOS: only override `prefersHomeIndicatorAutoHidden` if it is available.
+
 ## 1.0.1
 
 * Update repository URL.
