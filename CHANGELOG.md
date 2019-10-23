@@ -1,3 +1,7 @@
+## 1.1.1
+
+* Protect against a possible crash involving `object_setClass`.
+
 ## 1.1.0
 
 * Add `deferScreenEdges`. A "deferred" screen edge is one the user needs to swipe in from _twice_ to trigger the OS behavior. (Deferring the bottom screen edge corresponds to "greying out" the home indicator, hence its inclusion in this package.)

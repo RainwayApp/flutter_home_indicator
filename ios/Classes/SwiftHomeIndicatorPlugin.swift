@@ -2,16 +2,16 @@ import Flutter
 import UIKit
 
 class HomeIndicatorAwareFlutterViewController : FlutterViewController {
-  var hidingHomeIndicator: Bool = false
+  static var hidingHomeIndicator: Bool = false
 
   @available(iOS 11.0, *)
   override var prefersHomeIndicatorAutoHidden: Bool {
-    return hidingHomeIndicator
+    return HomeIndicatorAwareFlutterViewController.hidingHomeIndicator
   }
 
   func setHidingHomeIndicator(newValue: Bool) {
-    if (newValue != hidingHomeIndicator) {
-      hidingHomeIndicator = newValue
+    if (newValue != HomeIndicatorAwareFlutterViewController.hidingHomeIndicator) {
+      HomeIndicatorAwareFlutterViewController.hidingHomeIndicator = newValue
       if #available(iOS 11.0, *) {
         setNeedsUpdateOfHomeIndicatorAutoHidden()
       } else {
@@ -20,16 +20,16 @@ class HomeIndicatorAwareFlutterViewController : FlutterViewController {
     }
   }
 
-  var deferredEdges: UIRectEdge = []
+  static var deferredEdges: UIRectEdge = []
 
   @available(iOS 11.0, *)
   override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
-    return deferredEdges
+    return HomeIndicatorAwareFlutterViewController.deferredEdges
   }
 
   func setDeferredEdges(newValue: UIRectEdge) {
-    if (newValue != deferredEdges) {
-      deferredEdges = newValue
+    if (newValue != HomeIndicatorAwareFlutterViewController.deferredEdges) {
+      HomeIndicatorAwareFlutterViewController.deferredEdges = newValue
       if #available(iOS 11.0, *) {
         setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
       } else {
@@ -70,8 +70,7 @@ public class SwiftHomeIndicatorPlugin: NSObject, FlutterPlugin {
       controller.setHidingHomeIndicator(newValue: false)
       result(nil)
     } else if (call.method == "isHidden") {
-      guard let controller = controller() else { result(noController); return }
-      result(controller.hidingHomeIndicator)
+      result(HomeIndicatorAwareFlutterViewController.hidingHomeIndicator)
     } else if (call.method == "deferScreenEdges") {
       guard let controller = controller() else { result(noController); return }
       guard let arg = call.arguments else { result(noArgument); return }
