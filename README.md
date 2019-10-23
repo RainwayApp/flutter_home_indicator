@@ -2,6 +2,8 @@
 
 Flutter plugin to show/hide the iPhone X home indicator.
 
+Also features an API to "defer" screen edges, i.e. require a second swipe-in from the top/bottom/left/right before OS behavior is triggered. This is how you "grey out" the home indicator.
+
 On Android, this plugin does nothing, and `isHidden` always returns `true`.
 
 ## Usage
@@ -12,6 +14,7 @@ import 'package:home_indicator/home_indicator.dart';
 await HomeIndicator.show();
 await HomeIndicator.hide();
 final result = await HomeIndicator.isHidden();
+await HomeIndicator.deferScreenEdges([ScreenEdge.bottom]); // Grey it out
 ```
 
 ## Notes

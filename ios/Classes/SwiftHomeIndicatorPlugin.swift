@@ -19,6 +19,24 @@ class HomeIndicatorAwareFlutterViewController : FlutterViewController {
       }
     }
   }
+
+  var deferredEdges: UIRectEdge = []
+
+  @available(iOS 11.0, *)
+  override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+    return deferredEdges
+  }
+
+  func setDeferredEdges(newValue: UIRectEdge) {
+    if (newValue != deferredEdges) {
+      deferredEdges = newValue
+      if #available(iOS 11.0, *) {
+        setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+      } else {
+        // Fallback on earlier versions: do nothing
+      }
+    }
+  }
 }
 
 public class SwiftHomeIndicatorPlugin: NSObject, FlutterPlugin {
@@ -41,6 +59,8 @@ public class SwiftHomeIndicatorPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     let noController = FlutterError(code: "NO_CONTROLLER", message: "Error fetching HomeIndicatorAwareFlutterViewController", details: nil);
+    let noArgument = FlutterError(code: "NO_ARGUMENT", message: "Expected an argument to \(call.method) but didn't get any", details: nil);
+    let argumentError = FlutterError(code: "ARGUMENT_ERROR", message: "Argument to \(call.method) has the wrong type", details: nil);
     if (call.method == "hide") {
       guard let controller = controller() else { result(noController); return }
       controller.setHidingHomeIndicator(newValue: true)
@@ -52,6 +72,12 @@ public class SwiftHomeIndicatorPlugin: NSObject, FlutterPlugin {
     } else if (call.method == "isHidden") {
       guard let controller = controller() else { result(noController); return }
       result(controller.hidingHomeIndicator)
+    } else if (call.method == "deferScreenEdges") {
+      guard let controller = controller() else { result(noController); return }
+      guard let arg = call.arguments else { result(noArgument); return }
+      guard let num = arg as? UInt else { result(argumentError); return }
+      controller.setDeferredEdges(newValue: UIRectEdge(rawValue: num))
+      result(nil)
     } else {
       result(FlutterMethodNotImplemented)
     }

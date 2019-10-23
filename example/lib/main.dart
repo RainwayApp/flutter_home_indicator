@@ -31,6 +31,16 @@ class _MyAppState extends State<MyApp> {
     _fetchIsHidden();
   }
 
+  Future<void> _deferAllScreenEdges() async {
+    await HomeIndicator.deferScreenEdges(ScreenEdge.values);
+    _fetchIsHidden();
+  }
+
+  Future<void> _deferNoScreenEdges() async {
+    await HomeIndicator.deferScreenEdges([]);
+    _fetchIsHidden();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,6 +54,8 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               RaisedButton(onPressed: _hideHomeIndicator, child: Text('Hide')),
               RaisedButton(onPressed: _showHomeIndicator, child: Text('Show')),
+              RaisedButton(onPressed: _deferAllScreenEdges, child: Text('Defer all edges')),
+              RaisedButton(onPressed: _deferNoScreenEdges, child: Text('Defer no edges')),
               Text("(The indicator might take a second to disappear.)"),
               Text("HomeIndicator.isHidden() == $_isHidden"),
             ],
