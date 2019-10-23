@@ -33,6 +33,11 @@ class HomeIndicator {
   }
 
   /// Ask iOS to defer system gestures on the given edges of the screen.
+  ///
+  /// **Warning:** It appears "deferring" the bottom screen edge does _not_ successfully
+  /// prevent a "home swipe" when the home indicator is also hidden. That is: if you need
+  /// the behavior of `HomeIndicator.deferScreenEdges([ScreenEdge.bottom])`, then
+  /// don't also call `HomeIndicator.hide()`.
   static Future<void> deferScreenEdges(List<ScreenEdge> edges) async {
     var mask = 0;
     for (final e in edges) {

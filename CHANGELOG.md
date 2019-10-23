@@ -1,3 +1,7 @@
+## 1.1.2
+
+* Add a warning about the interaction between `HomeIndicator.deferScreenEdges` and `HomeIndicator.hide()`.
+
 ## 1.1.1
 
 * Protect against a possible crash involving `object_setClass`.
