@@ -5,7 +5,7 @@ class HomeIndicatorAwareFlutterViewController : FlutterViewController {
   var hidingHomeIndicator: Bool = false
 
   @available(iOS 11.0, *)
-  override func prefersHomeIndicatorAutoHidden() -> Bool {
+  override var prefersHomeIndicatorAutoHidden: Bool {
     return hidingHomeIndicator
   }
 

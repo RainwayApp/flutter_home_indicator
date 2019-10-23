@@ -1,6 +1,6 @@
 name: home_indicator
 description: Flutter plugin to show/hide the iPhone X home indicator.
-version: 1.0.2
+version: 1.0.3
 author: Rainway, Inc. <code@rainway.com>
 homepage: https://github.com/RainwayApp/flutter_home_indicator
 
