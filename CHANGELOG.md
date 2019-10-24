@@ -1,3 +1,7 @@
+## 1.1.3
+
+* (Hopefully) fix a bug with Swift versions.
+
 ## 1.1.2
 
 * Add a warning about the interaction between `HomeIndicator.deferScreenEdges` and `HomeIndicator.hide()`.

@@ -4,10 +4,17 @@ import UIKit
 class HomeIndicatorAwareFlutterViewController : FlutterViewController {
   static var hidingHomeIndicator: Bool = false
 
+  #if swift(>=4.2)
   @available(iOS 11.0, *)
   override var prefersHomeIndicatorAutoHidden: Bool {
     return HomeIndicatorAwareFlutterViewController.hidingHomeIndicator
   }
+  #else
+  @available(iOS 11.0, *)
+  override func prefersHomeIndicatorAutoHidden() -> Bool {
+    return HomeIndicatorAwareFlutterViewController.hidingHomeIndicator
+  }
+  #endif
 
   func setHidingHomeIndicator(newValue: Bool) {
     if (newValue != HomeIndicatorAwareFlutterViewController.hidingHomeIndicator) {
@@ -22,10 +29,17 @@ class HomeIndicatorAwareFlutterViewController : FlutterViewController {
 
   static var deferredEdges: UIRectEdge = []
 
+  #if swift(>=4.2)
   @available(iOS 11.0, *)
   override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
     return HomeIndicatorAwareFlutterViewController.deferredEdges
   }
+  #else
+  @available(iOS 11.0, *)
+  override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
+    return HomeIndicatorAwareFlutterViewController.deferredEdges
+  }
+  #endif
 
   func setDeferredEdges(newValue: UIRectEdge) {
     if (newValue != HomeIndicatorAwareFlutterViewController.deferredEdges) {

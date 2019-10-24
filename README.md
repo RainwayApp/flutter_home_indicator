@@ -1,4 +1,4 @@
-# home_indicator
+# home\_indicator
 
 Flutter plugin to show/hide the iPhone X home indicator.
 
