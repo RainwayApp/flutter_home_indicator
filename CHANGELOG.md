@@ -1,3 +1,7 @@
+## 1.1.4
+
+* Bump Kotlin version (fix #2).
+
 ## 1.1.3
 
 * (Hopefully) fix a bug with Swift versions.
