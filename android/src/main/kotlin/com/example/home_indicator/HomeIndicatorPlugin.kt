@@ -22,6 +22,8 @@ class HomeIndicatorPlugin: MethodCallHandler {
       result.success(null)
     } else if (call.method == "isHidden") {
       result.success(true)
+    } else if (call.method == "deferScreenEdges") {
+      result.success(null)
     } else {
       result.notImplemented()
     }

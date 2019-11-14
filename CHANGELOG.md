@@ -1,3 +1,7 @@
+## 1.1.5
+
+- Empty implementation of deferScreenEdges for Android
+
 ## 1.1.4
 
 * Bump Kotlin version (fix #2).
