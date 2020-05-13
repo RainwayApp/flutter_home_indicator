@@ -23,7 +23,9 @@ class HomeIndicatorAwareFlutterViewController : FlutterViewController {
     if (newValue != HomeIndicatorAwareFlutterViewController.hidingHomeIndicator) {
       HomeIndicatorAwareFlutterViewController.hidingHomeIndicator = newValue
       if #available(iOS 11.0, *) {
-        setNeedsUpdateOfHomeIndicatorAutoHidden()
+        if responds(to: #selector(setNeedsUpdateOfHomeIndicatorAutoHidden)) {
+            setNeedsUpdateOfHomeIndicatorAutoHidden()
+        }
       } else {
         // Fallback on earlier versions: do nothing
       }
