@@ -51,10 +51,10 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(onPressed: _hideHomeIndicator, child: Text('Hide')),
-              RaisedButton(onPressed: _showHomeIndicator, child: Text('Show')),
-              RaisedButton(onPressed: _deferAllScreenEdges, child: Text('Defer all edges')),
-              RaisedButton(onPressed: _deferNoScreenEdges, child: Text('Defer no edges')),
+              ElevatedButton(onPressed: _hideHomeIndicator, child: Text('Hide')),
+              ElevatedButton(onPressed: _showHomeIndicator, child: Text('Show')),
+              ElevatedButton(onPressed: _deferAllScreenEdges, child: Text('Defer all edges')),
+              ElevatedButton(onPressed: _deferNoScreenEdges, child: Text('Defer no edges')),
               Text("(The indicator might take a second to disappear.)"),
               Text("HomeIndicator.isHidden() == $_isHidden"),
             ],
