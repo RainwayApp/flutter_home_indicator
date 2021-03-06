@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Migrate to Flutter 2, Dart 2.12.0 and sound null safety
+
 ## 1.1.5
 
 - Empty implementation of deferScreenEdges for Android
