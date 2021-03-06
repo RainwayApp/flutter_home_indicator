@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:home_indicator/home_indicator.dart';
 
 void main() => runApp(MyApp());
