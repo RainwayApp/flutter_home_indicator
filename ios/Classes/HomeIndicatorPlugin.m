@@ -1,5 +1,5 @@
 #import "HomeIndicatorPlugin.h"
-#import <home_indicator/home_indicator-Swift.h>
+#import <home_indicator-Swift.h>
 
 @implementation HomeIndicatorPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
