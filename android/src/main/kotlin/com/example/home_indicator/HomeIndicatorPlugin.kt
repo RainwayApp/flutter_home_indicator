@@ -1,7 +1,5 @@
 package com.example.home_indicator
 
-import HomeIndicatorMethodCallHandler
-
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 
@@ -15,6 +13,6 @@ class HomeIndicatorPlugin: FlutterPlugin {
 
   override fun onDetachedFromEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel?.setMethodCallHandler(null)
-    channel = null;
+    channel = null
   }
 }
