@@ -1,31 +1,20 @@
 package com.example.home_indicator
 
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
+import HomeIndicatorMethodCallHandler
 
-class HomeIndicatorPlugin: MethodCallHandler {
-  companion object {
-    @JvmStatic
-    fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "home_indicator")
-      channel.setMethodCallHandler(HomeIndicatorPlugin())
-    }
+import io.flutter.plugin.common.MethodChannel
+import io.flutter.embedding.engine.plugins.FlutterPlugin
+
+class HomeIndicatorPlugin: FlutterPlugin {
+  private var channel: MethodChannel? = null
+
+  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "home_indicator")
+    channel?.setMethodCallHandler(HomeIndicatorMethodCallHandler())
   }
 
-  override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "show") {
-      result.success(null)
-    } else if (call.method == "hide") {
-      result.success(null)
-    } else if (call.method == "isHidden") {
-      result.success(true)
-    } else if (call.method == "deferScreenEdges") {
-      result.success(null)
-    } else {
-      result.notImplemented()
-    }
+  override fun onDetachedFromEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    channel?.setMethodCallHandler(null)
+    channel = null;
   }
 }
