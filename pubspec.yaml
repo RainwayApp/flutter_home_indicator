@@ -1,12 +1,11 @@
 name: home_indicator
 description: Flutter plugin to show/hide the home indicator on iPhones without home button.
 version: 2.0.0
-author: Rainway, Inc. <code@rainway.com>
 homepage: https://github.com/RainwayApp/flutter_home_indicator
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: '>=2.0.0'
 
 dependencies:
   flutter:
