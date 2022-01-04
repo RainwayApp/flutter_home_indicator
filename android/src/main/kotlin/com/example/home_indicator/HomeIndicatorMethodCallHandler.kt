@@ -9,7 +9,7 @@ class HomeIndicatorMethodCallHandler: MethodCallHandler {
     when (call.method) {
       "show" -> result.success(null)
       "hide" -> result.success(null)
-      "isHidden" -> result.success(null)
+      "isHidden" -> result.success(true)
       "deferScreenEdges" -> result.success(null)
       else -> result.notImplemented()
     }
