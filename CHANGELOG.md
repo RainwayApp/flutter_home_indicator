@@ -1,3 +1,7 @@
+## 2.0.1
+
+- Android v2 embedding.
+
 ## 2.0.0
 
 - Migrate to Flutter 2, Dart 2.12.0 and sound null safety
