@@ -1,3 +1,7 @@
+## 2.0.2
+
+- Fix iOS build
+
 ## 2.0.1
 
 - Android v2 embedding.
